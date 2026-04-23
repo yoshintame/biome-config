@@ -1,0 +1,70 @@
+{
+  "name": "@yoshintame/biome-config",
+  "version": "0.0.0-semantically-released",
+  "description": "Personal shared Biome configuration",
+  "license": "MIT",
+  "author": "Mikhail Ivanov <m.ivanov0427@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yoshintame/biome-config.git"
+  },
+  "type": "module",
+  "exports": {
+    "./base": "./base.json",
+    "./react": "./react.json",
+    "./fsd": "./fsd.json"
+  },
+  "files": [
+    "base.json",
+    "react.json",
+    "fsd.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@biomejs/biome": "^2.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.7",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
+    "semantic-release": "^24.2.7"
+  },
+  "scripts": {
+    "check": "biome check --write",
+    "format": "biome format --write",
+    "lint": "biome lint --write",
+    "commitlint": "commitlint --edit",
+    "lint-staged": "bun exec lint-staged",
+    "prepare": "husky",
+    "preinstall": "npx only-allow bun"
+  },
+  "lint-staged": {
+    "*": [
+      "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
+  }
+}

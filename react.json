@@ -1,0 +1,20 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.4.12/schema.json",
+  "extends": ["./base.json"],
+  "linter": {
+    "rules": {
+      "style": {
+        "useSelfClosingElements": "error"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "level": "error",
+          "fix": "safe",
+          "options": {
+            "functions": ["cn", "clsx", "cva", "tw", "tw.*"]
+          }
+        }
+      }
+    }
+  }
+}
