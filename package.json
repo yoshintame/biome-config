@@ -6,7 +6,7 @@
   "author": "Mikhail Ivanov <m.ivanov0427@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yoshintame/biome-config.git"
+    "url": "git+https://github.com/yoshintame/biome-config.git"
   },
   "type": "module",
   "exports": {
